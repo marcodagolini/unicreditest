@@ -1,0 +1,2066 @@
+<!DOCTYPE html>
+<html>
+
+	
+	
+	
+	
+	
+	
+	
+<head>
+  <title>WindowMessagingAPIs</title>
+
+
+<style>
+  
+	
+	
+	
+  
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+  
+html, body{
+    height: 99%;
+    overflow:hidden;
+}  
+  
+    
+#log {
+    position:absolute;
+    visibility:visible;
+    left: 34px; 
+    top: 76px;
+    width: 256px;
+    height: 420px;
+    background-color: #ffffff;
+    overflow: auto;
+    max-height: 420px;
+    padding-right: 2000px;
+}
+  
+.invisibleTTRmsg{
+    visibility:hidden;
+}
+  
+.invisibleTTR {
+    position:absolute;
+    left: 28px; 
+    top: 83px; 
+    resize: none; 
+    width: 268px; 
+    font-size: 1em;
+    background-color: #ffcc99;
+    height: 50px;
+    visibility:hidden;
+}
+   
+  
+.visibleTTRmsg{
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+    visibility:visible;
+    font-size: 10pt;
+    color: black;
+    width: 254px;
+    height: 50px;
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+  
+.visibleTTR {
+    position:absolute;
+    visibility:visible;
+    left: 28px; 
+    top: 83px; 
+    resize: none; 
+    width: 268px; 
+    font-size: 1em;
+    background-color: #ffcc99;
+    height: 50px;
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+  
+  
+.fullCSAT1 {
+    position:absolute;
+    visibility:visible;
+    left: 3px; 
+    top: 115px;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://i.imgur.com/181H3rn.png');
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+  
+.fullCSAT2 {
+    position:absolute;
+    visibility:visible;
+    left: 56px; 
+    top: 105px;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://i.imgur.com/181H3rn.png');
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+  
+.fullCSAT3 {
+    position:absolute;
+    visibility:visible;
+    left: 109px; 
+    top: 100px;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://i.imgur.com/181H3rn.png');
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+  
+.fullCSAT4 {
+    position:absolute;
+    visibility:visible;
+    left: 162px; 
+    top: 105px;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://i.imgur.com/181H3rn.png');
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+  
+.fullCSAT5 {
+    position:absolute;
+    visibility:visible;
+    left: 215px; 
+    top: 115px;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://i.imgur.com/181H3rn.png');
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+  
+  
+.invisibleCSAT1 {
+    visibility:hidden;
+}
+  
+.invisibleCSAT2 {
+    visibility:hidden;
+}
+  
+.invisibleCSAT3 {
+    visibility:hidden;
+}
+  
+.invisibleCSAT4 {
+    visibility:hidden;
+}
+  
+.invisibleCSAT5 {
+    visibility:hidden;
+}
+  
+.emptyCSAT1 {
+    position:absolute;
+    visibility:visible;
+    left: 3px; 
+    top: 115px;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://i.imgur.com/kXKlCNo.png');
+}
+  
+.emptyCSAT2 {
+    position:absolute;
+    visibility:visible;
+    left: 56px; 
+    top: 105px;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://i.imgur.com/kXKlCNo.png');
+}
+  
+.emptyCSAT3 {
+    position:absolute;
+    visibility:visible;
+    left: 109px; 
+    top: 100px;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://i.imgur.com/kXKlCNo.png');
+}
+  
+.emptyCSAT4 {
+    position:absolute;
+    visibility:visible;
+    left: 162px; 
+    top: 105px;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://i.imgur.com/kXKlCNo.png');
+}
+  
+.emptyCSAT5 {
+    position:absolute;
+    visibility:visible;
+    left: 215px; 
+    top: 115px;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://i.imgur.com/kXKlCNo.png');
+}
+  
+.CSATmsg{
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+    visibility:visible;
+    font-size: 16pt;
+    color: black;
+    width: 270px;
+    height: 150px;
+}
+  
+.NPSmsg{
+    position:absolute;
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+    visibility:visible;
+    font-size: 16pt;
+    color: black;
+    width: 270px;
+    height: 100px;
+    left: -1px; 
+    top: 200px; 
+}
+  
+.NPSyes{
+    position:absolute;
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+    visibility:visible;
+    font-size: 16pt;
+    color: black;
+    width: 20px;
+    height: 20px;
+    left: 80px; 
+    top: 280px; 
+}
+  
+.NPSyesOK{
+    position:absolute;
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+    visibility:visible;
+    font-size: 16pt;
+    color: green;
+    width: 20px;
+    height: 20px;
+    left: 80px; 
+    top: 280px; 
+}
+  
+.NPSyesFade{
+    position:absolute;
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+    visibility:visible;
+    font-size: 16pt;
+    color: black;
+    opacity: 0.3;
+    width: 20px;
+    height: 20px;
+    left: 80px; 
+    top: 280px; 
+}
+  
+.NPSno{
+    position:absolute;
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+    visibility:visible;
+    font-size: 16pt;
+    color: black;
+    width: 20px;
+    height: 20px;
+    left: 160px; 
+    top: 280px; 
+}
+  
+.NPSnoOK{
+    position:absolute;
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+    visibility:visible;
+    font-size: 16pt;
+    color: red;
+    width: 20px;
+    height: 20px;
+    left: 160px; 
+    top: 280px; 
+}
+  
+.NPSnoFade{
+    position:absolute;
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+    visibility:visible;
+    font-size: 16pt;
+    color: black;
+    opacity: 0.3;
+    width: 20px;
+    height: 20px;
+    left: 160px; 
+    top: 280px; 
+}
+  
+.csatBG {
+    position:absolute;
+    visibility:visible;
+    left: 0px; 
+    top: 0px; 
+    background-color: #ffffff;
+    width: 270px;
+    height: 470px;
+}
+    
+.btn {
+    display: inline-block;
+    position:absolute;
+    visibility:visible;
+    left: 248px; 
+    top: 515px;
+    padding: 4px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+  
+.submitCSAT {
+    position:absolute;
+    visibility:visible;
+    left: 105px; 
+    top: 350px;
+    padding: 4px 8px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+  
+  
+    
+.form-control { 
+    background-color: #bccad6 !important;
+    position:absolute;
+    visibility:visible;
+    left: 57px; 
+    top: 515px;
+    border: none;
+    width: 180px;
+    height: 25px;
+    font-size: 1em;
+}
+   
+    
+.customer {
+    margin-left: auto;
+    margin-right: 0px;
+    text-align: right;
+    color: black;
+    background-color: #bccad6;
+    border-radius: 10px 0px 10px 10px;
+    padding: 10px;
+    max-width: 70%;
+    font-size: 16px;
+    word-wrap: break-word;
+    display: inline-block;
+}
+.agent {
+    margin-right: auto;
+    margin-left: 0px;
+    text-align: left;
+    color: black;
+    background-color: #edf0f2;
+    border-radius: 0px 10px 10px 10px;
+    padding: 10px;
+    max-width: 70%;
+    font-size: 16px;
+    word-wrap: break-word;
+    display: inline-block;
+}
+  
+.cobrowse {
+    margin-right: auto;
+    margin-left: 0px;
+    text-align: left;
+    color: black;
+    background-color: #ffcc99;
+    border-radius: 0px 10px 10px 10px;
+    padding: 10px;
+    max-width: 70%;
+    font-size: 16px;
+    word-wrap: break-word;
+    display: inline-block;
+}
+   
+    
+.intro {
+    background-color: #ffffff;  
+    text-align: center;
+    width: 256px;
+    
+}
+	
+.spaceagent {
+    background-color: #ffffff;  
+    text-align: left;
+    width: 246px;
+    font-size: 8px;
+    height: 10px;
+    margin-left: 10px;
+    
+}
+  
+.agenttyping {
+    background-color: #fffff;  
+    text-align: left;
+    width: 246px;
+    font-size: 12px;
+    height: 15px;
+    margin-left: 10px;
+    
+}
+    
+   
+  
+.spacecustomer {
+    background-color: #ffffff;  
+    text-align: right;
+    width: 246px;
+    font-size: 8px;
+    height: 10px;
+    
+}
+    
+    
+.space {
+    background-color: #ffffff;  
+    text-align: right;
+    width: 246px;
+    font-size: 8px;
+    height: 10px;
+    
+}
+    
+    
+.chiusura {
+    background-color: #ffffff;
+    text-align: center;
+    width: 255px;
+    font-size: 8px;
+}
+       
+    
+.hostmarks {
+    background-color: #ffffff;
+    text-align: right;
+    width: 256px;
+}
+  
+.hostcustomer {
+    background-color: #ffffff;
+    text-align: right;
+    width: 256px;
+}
+    
+    
+.hostagent {
+    background-color: #ffffff;
+    text-align: left;
+    width: 256px;
+}
+ 
+ 
+.image {
+    width: 160px;
+}
+ 
+.map {
+    width: 160px;
+}
+	
+    
+    
+    
+</style>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- BEGIN LivePerson Monitor. -->
+<script type="text/javascript">window.lpTag=window.lpTag||{},"undefined"==typeof window.lpTag._tagCount?(window.lpTag={site:'31554357'||"",section:lpTag.section||"",tagletSection:lpTag.tagletSection||null,autoStart:lpTag.autoStart!==!1,ovr:lpTag.ovr||{domain : 'lptag-a.liveperson.net',tagjs : 'tags-a.liveperson.net'},_v:"1.8.0",_tagCount:1,protocol:"https:",events:{bind:function(t,e,i){lpTag.defer(function(){lpTag.events.bind(t,e,i)},0)},trigger:function(t,e,i){lpTag.defer(function(){lpTag.events.trigger(t,e,i)},1)}},defer:function(t,e){0==e?(this._defB=this._defB||[],this._defB.push(t)):1==e?(this._defT=this._defT||[],this._defT.push(t)):(this._defL=this._defL||[],this._defL.push(t))},load:function(t,e,i){var n=this;setTimeout(function(){n._load(t,e,i)},0)},_load:function(t,e,i){var n=t;t||(n=this.protocol+"//"+(this.ovr&&this.ovr.domain?this.ovr.domain:"lptag.liveperson.net")+"/tag/tag.js?site="+this.site);var a=document.createElement("script");a.setAttribute("charset",e?e:"UTF-8"),i&&a.setAttribute("id",i),a.setAttribute("src",n),document.getElementsByTagName("head").item(0).appendChild(a)},init:function(){this._timing=this._timing||{},this._timing.start=(new Date).getTime();var t=this;window.attachEvent?window.attachEvent("onload",function(){t._domReady("domReady")}):(window.addEventListener("DOMContentLoaded",function(){t._domReady("contReady")},!1),window.addEventListener("load",function(){t._domReady("domReady")},!1)),"undefined"==typeof window._lptStop&&this.load()},start:function(){this.autoStart=!0},_domReady:function(t){this.isDom||(this.isDom=!0,this.events.trigger("LPT","DOM_READY",{t:t})),this._timing[t]=(new Date).getTime()},vars:lpTag.vars||[],dbs:lpTag.dbs||[],ctn:lpTag.ctn||[],sdes:lpTag.sdes||[],hooks:lpTag.hooks||[],ev:lpTag.ev||[]},lpTag.init()):window.lpTag._tagCount+=1;</script>
+<!-- END LivePerson Monitor. -->
+
+</head>
+<body>
+
+
+    <div id="log"></div>
+
+    <form class="form-inline" onsubmit="return false">
+	
+        <div class="form-group" style="display:inline;">
+	    <div id="photo" style="position:absolute; background-image: url(https://i.imgur.com/kvC9KqA.jpg); width:25px; height:25px; top:515px; left:31px;"></div>
+            <input id="textline" type="text" class="form-control">
+        </div>
+        <button id="send" class="btn" disabled>send</button>
+
+        <div class="form-group" style="display:none;">
+            <label for="account">Account:</label>
+            <input id="account" type="text" class="form-control" value="31554357">
+        </div>
+   
+        <button id="connect" class="btn btn-default" style="display:none;">connect</button>
+    </form>
+
+  
+    <div id="ttr" class="invisibleTTR">
+        <div id="TTRmsg" class="invisibleTTRmsg">Some text</div>
+    </div>
+
+
+<div style="position:absolute; background-image: url(https://i.imgur.com/fo96kvG.png); width:330px; height:89px; top:0px; left:0px;">
+</div>
+<div style="position:absolute; background-image: url(https://i.imgur.com/jk5Ak5W.png); width:33px; height:472px; top:85px; left:0px;">
+</div>
+<div style="position:absolute; background-image: url(https://i.imgur.com/QFTnB3o.png); width:27px; height:478px; top:83px; left:293px;">
+</div>
+<div style="position:absolute; background-image: url(https://i.imgur.com/geTIeKW.png); width:330px; height:90px; top:547px; left:0px;">
+</div>
+
+<div class="alertbadge" style="position:absolute; display:none; background-image: url(https://i.imgur.com/vbwOhhG.png); width:80px; height:80px; top:430px; left:30px;">
+</div>
+
+<div class="badge" style="position:absolute; display:none; font-weight: bold; color:#FFFFFF; width:10px; height:10px; top:448px; left:84px;">2
+</div>
+	
+<div class="lp_cobrowse_callscreen_container" style="position:absolute; width:300px; height:300px; top:100px; left:400px;"></div>
+	
+
+</body>
+	
+<script>
+"use strict";
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var LPUtils = function () {
+  function LPUtils() {
+    _classCallCheck(this, LPUtils);
+  }
+  LPUtils.getDomain = function getDomain(account, name) {
+    var domains = account.startsWith("le") ? "hc1n.dev.lprnd.net" : "adminlogin.liveperson.net";
+    return new Promise(function (res, rej) {
+      return $.ajax({
+        url: "https://" + domains + "/csdr/account/" + account + "/service/" + name + "/baseURI.lpCsds?version=1.0",
+        jsonp: "cb",
+        jsonpCallback: "domainCallback",
+        cache: true,
+        dataType: "jsonp",
+        success: function success(data) {
+          return res(data.ResultSet.lpData[0].lpServer);
+        },
+        error: function error(e, text) {
+          return rej(text);
+        }
+      });
+    });
+  };
+  LPUtils.agentProfile = function agentProfile(account, agentID) {
+    var _this = this;
+    return new Promise(function (res, rej) {
+      return _this.getDomain(account, "acCdnDomain").then(function (accdnDomain) {
+        return $.ajax({
+          url: "https://" + accdnDomain + "/api/account/" + account + "/configuration/le-users/users/" + agentID,
+          jsonp: "cb",
+          jsonpCallback: "apCallback",
+          cache: true,
+          dataType: "jsonp",
+          success: function success(accdnResp) {
+            return res(accdnResp);
+          }
+        });
+      });
+    });
+  };
+  LPUtils.signup = function signup(account) {
+    var _this2 = this;
+    return new Promise(function (res, rej) {
+      return _this2.getDomain(account, "idp").then(function (idpDomain) {
+          var jwt = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3NvbWV0aGluZy5pdCIsInN1YiI6InF3ZXJ0eTE5NzMiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJKb2huRG9lIiwicGhvbmVfbnVtYmVyIjoiKzEtMTAtMzQ0LTM3NjUzMzMiLCJnaXZlbl9uYW1lIjoiVGVzdCIsImZhbWlseV9uYW1lIjoiVGVzdDIiLCJlbWFpbCI6ImVtYWlsQGVtYWlsLmNvbSIsImdlbmRlciI6Ik1hbGUiLCJscF9zZGVzIjpbeyJ0eXBlIjoiY3RtcmluZm8iLCJpbmZvIjp7ImNzdGF0dXMiOiJjYW5jZWxsZWQiLCJjdHlwZSI6InZpcCIsImN1c3RvbWVySWQiOiJhYmMxMjM0NTYiLCJiYWxhbmNlIjoiLTQwMC45OSIsInNvY2lhbElkIjoiMzQ1Njc4NzY1NCIsImltZWkiOiI5OTk2NjMyMSIsInVzZXJOYW1lIjoidXNlcjAwMCIsImNvbXBhbnlTaXplIjoiNTAwIiwiYWNjb3VudE5hbWUiOiJiYW5rIGNvcnAiLCJyb2xlIjoiYnJva2VyIiwibGFzdFBheW1lbnREYXRlIjp7ImRheSI6IjE1IiwibW9udGgiOiIxMCIsInllYXIiOiIyMDE0In0sInJlZ2lzdHJhdGlvbkRhdGUiOnsiZGF5IjoiMjMiLCJtb250aCI6IjUiLCJ5ZWFyIjoiMjAxMyJ9fX0seyJ0eXBlIjoicGVyc29uYWwiLCJwZXJzb25hbCI6eyJmaXJzdG5hbWUiOiJKb2huIiwibGFzdG5hbWUiOiJEb2UiLCJhZ2UiOnsiYWdlIjoiMzQiLCJ5ZWFyIjoiMTk4MCIsIm1vbnRoIjoiNCIsImRheSI6IjE1In0sImNvbnRhY3RzIjpbeyJlbWFpbCI6Im15bmFtZUBleGFtcGxlLmNvbSIsInBob25lIjoiMzkzNDI1OTI5MDE1In1dLCJnZW5kZXIiOiJNQUxFIiwiY29tcGFueSI6IkxpdmVQZXJzb24ifX1dLCJpYXQiOjE1ODk4NzU5MzksImV4cCI6MjE4OTg3NTkzOX0.ef60SPFR4pmpC7NwdsN6awO0RJXwLbYy4JMeNYBw7IUWUD33UHwDxZc_F6EqMPhHj0_W5I-cjx5xZGppls6M8DpdDgOK_s8CWyb_alMGtlK4V8JaEsoLzUQjIHNXgeYH3ieHMJVXK7ltN4cibxnfepIxgkQbEkEAQUYCoTAG6OeTU0MozcVFLgz_TjLWNuc6vJfbdyBtOy42x3eWac_9JvHNctVGsSE_nYhw5LzmQyWN538uKLOZEAWbkITTTYIn8Khmv4Jic4E4UGig3iZMr_1vsN6NPK7p8yc7ctIfKO_M4akZ9x5OdVnOpHjN3XivAYJ0q64KP3vwicUxH6bbig";
+	  return $.ajax({
+          "url": "https://" + idpDomain + "/api/account/" + account + "/authenticate",
+          "async": true,
+          "crossDomain": true,
+          "method": "POST",
+          "headers": {
+               "content-type": "application/json"
+          },
+          "processData": false,
+          "data": "{\"authCode\" : \"" + jwt + "\"}",
+          success: function success(idpResp) {
+            return res(idpResp.jwt);
+          }
+        });
+      });
+    });
+  };
+  // fetch jwt from localstorage or create one
+  LPUtils.getJWT = function getJWT(account) {
+    var localJWT = localStorage.getItem(account + "-jwt");
+    if (localJWT) return Promise.resolve(localJWT);else return this.signup(account).then(function (newJWT) {
+      localStorage.setItem(account + "-jwt", newJWT);
+      return Promise.resolve(newJWT);
+    });
+  };
+  LPUtils.clearJWT = function clearJWT(account) {
+    localStorage.removeItem(account + "-jwt");
+  };
+  return LPUtils;
+}();
+// LPUtils.getDomain("qa20971604", "idp").then(r => console.log(r));
+// LPUtils.signup("qa20971604").then(r => console.log(r));
+var LPWs = function () {
+  LPWs.connect = function connect(url) {
+    return new LPWs(url)._connect();
+  };
+  LPWs.connectDebug = function connectDebug(url) {
+    return new LPWs(url, true)._connect();
+  };
+  function LPWs(url, debug) {
+    _classCallCheck(this, LPWs);
+    this.reqs = {};
+    this.subs = [];
+    this.url = url;
+    this.debug = debug;
+  }
+  LPWs.prototype._connect = function _connect() {
+    var _this3 = this;
+    return new Promise(function (resolve, reject) {
+      var ws = new WebSocket(_this3.url);
+      _this3.ws = ws;
+      ws.onopen = function () {
+        return resolve(_this3);
+      };
+      ws.onmessage = function (msg) {
+        return _this3.onmessage(msg);
+      };
+      ws.onclose = function (evt) {
+        _this3.ws = null;
+        reject(evt);
+      };
+    });
+  };
+  LPWs.prototype.request = function request(type, body, headers) {
+    var _this4 = this;
+    return new Promise(function (resolve, reject) {
+      var obj = {
+        "kind": "req",
+        "type": type,
+        "body": body,
+        "id": Math.floor(Math.random() * 1e9),
+        "headers": headers
+      };
+      _this4.reqs[obj.id] = function (type, code, body) {
+        return resolve({
+          type: type,
+          code: code,
+          body: body
+        });
+      };
+      var str = JSON.stringify(obj);
+      if (_this4.debug) console.log("sending: " + str);
+      _this4.ws.send(str);
+    });
+  };
+  LPWs.prototype.onNotification = function onNotification(filterFunc, _onNotification) {
+    this.subs.push({
+      filter: filterFunc,
+      cb: _onNotification
+    });
+  };
+  
+  
+  LPWs.prototype.toFuncName = function toFuncName(reqType) {
+    var str = reqType.substr(1 + reqType.lastIndexOf('.'));
+    return str.charAt(0).toLowerCase() + str.slice(1);
+  };
+  LPWs.prototype.registerRequests = function registerRequests(arr) {
+    var _this5 = this;
+    arr.forEach(function (reqType) {
+      return _this5[_this5.toFuncName(reqType)] = function (body, headers) {
+        return _this5.request(reqType, body, headers);
+      };
+    });
+  };
+  LPWs.prototype.onmessage = function onmessage(msg) {
+    if (this.debug) console.log("recieved: " + msg.data);
+    var obj = JSON.parse(msg.data);
+    if (obj.kind == "resp") {
+      var id = obj.reqId;
+      delete obj.reqId;
+      delete obj.kind;
+      this.reqs[id].call(this, obj.type, obj.code, obj.body);
+      delete this.reqs[id];
+    } else if (obj.kind == "notification") {
+      this.subs.forEach(function (sub) {
+        if (sub.filter.call(this, obj)) {
+          sub.cb.call(this, obj.body);
+        };
+      });
+    }
+  };
+  return LPWs;
+}();
+// LPWs.connect("wss://echo.websocket.org").then(lpws => console.log(`lpws was opened.`));
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  
+  
+function displayToaster(){
+	var giorni, ore, minuti;
+         var messaggio = "";
+         if (manualETTR){
+              var currentDate = new Date().getTime();
+              var diff = ((manualETTR - currentDate)/1000) + 30;
+              if (Math.floor(diff/(60*60*24)) > 0){
+                    giorni = Math.floor(diff/(60*60*24));
+                    diff = diff - giorni*60*60*24;
+                    ore = Math.floor(diff/(60*60));
+                    diff = diff - ore*60*60;
+                    minuti = Math.floor(diff/60);
+                    if (ore !== 0 && minuti !== 0){
+                        messaggio = "We will answer before:</br>" + giorni + " days, " + ore + " hours, " + minuti + " minutes.";
+                    }
+                    else if (ore == 0 && minuti !== 0){
+                         messaggio = "We will answer before:</br>" + giorni + " days, " + minuti + " minutes.";
+                    }
+                    else if (ore !== 0 && minuti == 0){
+                         messaggio = "We will answer before:</br>" + giorni + " days, " + ore + " hours.";
+                    }
+                    else {
+                         messaggio = "We will answer before:</br>" + giorni + " days.";
+                    }
+              }
+              else if (Math.floor(diff/(60*60)) > 0){
+                    ore = Math.floor(diff/(60*60));
+                    diff = diff - ore*60*60;
+                    minuti = Math.floor(diff/60);
+                    if(minuti !== 0){
+                        messaggio = "We will answer before:</br>" +  ore + " hours, " + minuti + " minutes.";
+                    }
+                    else{
+                        messaggio = "We will answer before:</br>" +  ore + " hours.";
+                    }
+              }
+              else if (Math.floor(diff/(60)) > 0){
+                    minuti = Math.floor(diff/60);
+                    messaggio = "We will answer before:</br>" + minuti + " minutes.";
+              }
+              else {
+                    messaggio = "Sorry for the delay</br>We will answer as soon as possible!";
+              }
+         }
+         else{
+                messaggio = "We will answer as soon as possible!";
+         }
+         document.getElementById("TTRmsg").innerHTML = messaggio;
+         $("#ttr").removeClass("invisibleTTR");
+         $("#ttr").addClass("visibleTTR");
+         $("#TTRmsg").removeClass("invisibleTTRmsg");
+         $("#TTRmsg").addClass("visibleTTRmsg");
+        
+         setTimeout(function(){ 
+            document.getElementById("TTRmsg").innerHTML = "";
+            $("#ttr").removeClass("visibleTTR");
+            $("#ttr").addClass("invisibleTTR");
+            $("#TTRmsg").removeClass("visibleTTRmsg");
+            $("#TTRmsg").addClass("invisibleTTRmsg");
+         }, 8000);
+}
+  
+function notifyMe(text) {
+    var notification = new Notification('Nuova notifica', {
+      icon: 'https://i.imgur.com/Y5zmGTw.png',
+      body: text,
+    });
+    notification.onclick = function () {
+	    window.open("", "WindowMessagingAPIs").focus();
+    };
+}
+  
+  
+function AllowNotifications() {
+  window.name = "WindowMessagingAPIs";
+  if (!Notification) { //*** notifications not supported
+    	  return;
+  }
+  if (Notification.permission !== "granted"){
+    	  Notification.requestPermission();
+  }
+}
+	
+  
+AllowNotifications();
+	
+var arrayBadge = []; // *** unread events
+var badge = 0;  // *** number of unread events
+var manualETTR = 0; // *** Actual Expected Time To Respond
+  
+//**** actions
+var publishText = '<div onclick="console.log(this.firstChild.title); (document.getElementsByClassName(\'form-control\')[0]).value = this.firstChild.title; return false;" ></div>';
+var publishTextData = function publishTextData(message){
+  var message2 = message.replace(/'/ig, "\\'");
+  return '<div onclick="console.log(\''+ message2 +'\'); (document.getElementsByClassName(\'form-control\')[0]).value = \''+ message2 +'\'; return false;" ></div>';
+}
+var linkOut = function linkOut(url) {
+  return '<a href="' + url + '" target="_blank"></a>';
+}
+var navigate = function navigate(la, lo) {
+  var mapsDomain = 'https://www.google.com/maps/place/\/@' + la + ',' + lo + ',14z/';
+  return "<a target='_blank' href=" + mapsDomain + "></a>"
+}
+//**** *******
+$(document).ready(() => { 
+  prepareToConnect();
+  $('#connect').click();  
+});
+function prepareToConnect() {
+  $('#connect').text('connect').unbind('click').click(() => {
+    $('#connect').text('connecting...');
+    const account = $('#account').prop('disabled',true).val();
+    LPUtils.getJWT(account).then(jwt => {
+      LPUtils.getDomain(account, 'asyncMessagingEnt').then(umsDomain => {
+        LPWs.connect(`wss://${umsDomain}/ws_api/account/${account}/messaging/consumer?v=3`)
+        .then(
+          openedSocket => {handleOpenedSocket(openedSocket,jwt);}, 
+          errorOpening => {
+            $('#log').append(`error opening connection ${errorOpening}\n`);
+            prepareToConnect();
+          });
+      });
+    }, errorGettingJwt => {
+      $('#connect').text('connect');
+      $('#account').prop('disabled',false).val();      
+      $('#log').append(`error ${errorGettingJwt} getting jwt for account ${account}\n`);
+    });
+  });
+ 
+}
+	
+	
+function handleOpenedSocket(socket,jwt) {
+    
+    
+  $('.intro').remove();
+  $('.agent').remove();
+  $('.customer').remove();
+  $('.space').remove();
+  $('.spaceagent').remove();
+  $('.spacecustomer').remove();
+  $('.lp-panel').remove();
+	
+    
+    
+  var space = document.createElement('div');
+  space.setAttribute("class","space");        
+  var maindiv = document.getElementById('log');
+  maindiv.appendChild(space);
+    
+  var newdiv = document.createElement('div');
+  newdiv.setAttribute("class","intro");
+  newdiv.innerHTML = "Welcome in our asynchronous Messaging service!<br><br>Our Agents will be soon available<br><br>";
+  var mydiv = document.getElementById('log');
+  mydiv.appendChild(newdiv);
+ 
+  
+    
+  socket.registerRequests(apiRequestTypes);
+  const me = myId(jwt);
+    
+  //console.log(jwt);
+	
+	
+  
+  socket.initConnection({},[{"type":".ams.headers.ClientProperties","integration":"WEB_SDK","integrationVersion":"2.6.10","os":"WINDOWS","deviceFamily":"DESKTOP","features":["CO_BROWSE","PHOTO_SHARING","RICH_CONTENT","AUTO_MESSAGES","QUICK_REPLIES"],"appId":"webAsync","deviceManufacture":"totallyCustom"},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
+console.log("***************************");
+	console.log("***************************");
+	console.log(JSON.stringify(socket));
+	console.log("***************************");
+	console.log("***************************");
+	
+	/****************
+setTimeout(function(){ 
+            
+          var jwt2 = "eyJraWQiOiIwMDAwMSIsInR5cCI6IkpXVCIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJmM2FlODA5Y2VhMTFmZWNjZTc2MTNmZmM5MTlkZjBkZDE0YzI1NTc0MTFlYTk0NzcxMTM0NmFlNWU1NTgzODI4IiwiYXVkIjoiYWNjOjY4MjgzOTg4IiwiaXNzIjoiaHR0cHM6XC9cL2lkcC5saXZlcGVyc29uLm5ldCIsImxwLmV4dCI6eyJzdWIiOiI2NTc1Njc1OTU2IiwiaXNzIjoiaHR0cHM6XC9cL3NvbWV0aGluZy5pdCIsImxwX3NkZXMiOiJlMmY3OTU4YmI2NTdkYWM4YTJjY2IwYTU4Y2I0ZGRiNGExMGI1NjAwMjg5OTJlZDYzYTllZmI2N2YxOTAyZWE1YmMyOTI3MWViNGEyZDg2N2Y4MzU0ZDliNTA4ZTJmMmE3MDBlNzllNWRmZDk2NmI5NjMyNTk0NjVjYWQwODE1MTZiZmNlZjA1NWQwNTJiZmEzZmNmZDQwODI2MmJmNDM5ODQ1NmVhMTI2YTY2ZjQ5MzkzMWIyNzhkYmUxNWY2ODhhYjVhNjJkYTU1OTE1OWNlZjM5ZDVkMGFkMTE1NmY4MjA2Zjc4YzgzZGI3YWI4YTg2Mjk5NjFhOTU3YTQ5NGJjMWY4YWEzYzBjYWFlMzdkNzVlMTdhZDgzNzUxOGM1MmI5OGQ5MDgzZjA3NDY4MTEzYTA2NDE5MGIxY2ZjZDU5NTBkNDQ4MTRmMjIwMGVlMDlkOTkzZWYzMTI0NDVkNmU0Mjk0M2Y5MmJhMzQxMWU1NjAzZGZjNmM2NDZmNThkZDNiOWM5Y2VmNjg1MGI5ZWU1ZWQyMDEwNmM3MTkwOTZmNzJlMGMzMzBiMjk5Nzg3NDM3OTdiMzE4MGU1NDhmNDM0NGI1YzA1ZDIwOTllNDcwZWU5ZDE2ZGZiZWE2NzRkYWE5ODhiYzQwZjFhOThiOWM0YmY2NmVmYjJmMzlkY2EzMzQ0ZDUwY2NlZjMyNDc0MDYxZDg5ZGIxNmU0MWM5OTZkNzIwNzFhOGFhZWJiMTgzNTlhZDFlNmYwOTQwNWJlNzhkODkyNDVmMTM1NzFjYTZkOGVmOGI5NTNlMTQ2ZDYyYWM4MjM5MmQyZTZlNTZiNDRlZDlmMThhYWM4OGQ1OWMwNmI2NjY0NmZmOTZmN2FhMzY2YmIxZTExZTg5YTE5NTVmZWQyYTgxMWQ3NGQzMmU0ZjQ1OTU1MjQ2YWY1ZGQxYzRjZmJhMzJiZjVlM2MxYzExZDRkZGZlOGI0OTQ4N2QyNjY5Y2ZjNTFmY2U4NzYxYjIyNGVjNTJhZWQwM2FiNTAxMTlmYjI2ZjFhYjg2YjAxNmQzY2EyMzg0ODAxMzFjMjEzZmI4NTg2NDVmZTU5MDgwOTVmYTY5OTZjNTE0ZDRhMDJiM2IwYTE1MWE2ZDMzM2FhZTUwMzhjODc0NWQyNWI0MGI4NWQ4Y2Y4ODQxMDIxYTM5NzFlYTI2ZTMzOGYzZWQ4NzYwY2ZiZWRmNzEzODY4NGI5Zjc2ZTg5YjMwYzc0NDQ5NTQ2MGYyMGIxODM4MWIzMGY1MmM4MDFkNTYyYTg2MTRjY2I1NjgwN2I5MDZlNmVmOWZjMzdmNDYxOTcxMDI1ZGNjMTc2ODgyNmVlM2Q3ODE3OThiYjBhZjZjZTE5NzgwZWMyZjZjYTBhNzhjNWJkYzUxNDY2ZDI1MGUxODg0ZDkzZWVlYTgxYjZhMzdmMjQzMjYwMWI2NmEwYzRjNmE4ZGYwNjFlMGI3Nzk1ODk4MDA1M2VhNjFkMTA3MWYxMjhhZGQ3YzVkZGZhYTY3YjI2YmNhMzE3YzU2YzY5OWUyM2U4NTI2ZmI3MjU2ZjIyMWNmMmE1ZjA3Yjg2Yjc5NyJ9LCJleHAiOjc1MTM5NjI4MjQsImlhdCI6MTUxMzk2MjgyNH0.XVivjfKGzYOr6RjOW0cMnRLCMORVAobDK-2QyvLKl98tqirZxbzPB_0cNbdu6R311liJE4uGp0pxajZ3b1TVpxL7xO732vMsB3QvsmI9h7iPvpnbbat4724cF0XAwYlkIrZRKZuO1El3scKeGG2UTHp7AZmCEIdt_OIa3V5YqZTdZIt_v1Pt2BCWi0N0AN49NGEBU-ZFxo18Pc3KiQwwOdZKcNLhAQ8gWvvw3NFtyYiHwC15yjQSQd63yRVLjsYdRo8NpUAkCFhUCHL1oT0e6f6co46HRliaP7Ms2obnKyYbzN1Boq2In8lgBc0cGWOsuK9QpzlbQWYxAujVzaLHSw";	
+  socket.initConnection({},[{"type":".ams.headers.ClientProperties","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE","PHOTO_SHARING"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt2}]);
+  
+	console.log("jwt cambiato");
+	
+         }, 60000);	
+	 
+	 
+****************************/
+  function process_file(files, convID){
+	  return new Promise((resolve, reject) => {
+		  var size = files[0].size;
+		  var extension = "";
+		  var myPath;
+		  var base64;
+		  var myThumbnail;
+		  var fileName = files[0].name;
+		  var allowed_extensions = new Array("jpg","jpeg","png","gif","docx");
+		  var file_extension = fileName.split('.').pop().toLowerCase();
+		  for(var i = 0; i <= allowed_extensions.length; i++) {
+			  if(allowed_extensions[i] == file_extension) {
+				  extension = file_extension.toUpperCase();
+				  var FR= new FileReader();
+				  FR.addEventListener("load", function(e) {
+					  // console.log(e.target.result);
+					  
+					  base64 = e.target.result;
+					  var img = new Image();
+					  img.src = base64;
+					  
+    
+					  
+					  function dataURItoBlob(dataURI) {
+						  var binary = atob(dataURI.split(',')[1]);
+						  console.log(binary);
+						  // var binary = decodeURIComponent(window.atob(dataURI.split(',')[1]));
+						  return binary;
+						    
+					  }
+					  
+					  function resizeMyPic(){
+						  var data;
+						  var max = 100;
+						  var oc = document.createElement('canvas'), octx = oc.getContext('2d');
+						  if (img.width > max) {
+							  oc.width = img.width;
+							  oc.height = img.height;
+							  octx.drawImage(img, 0, 0);
+							  if( img.width > img.height) {
+								  oc.height = (img.height / img.width) * max;
+								  oc.width = max;
+							  } else {
+								  oc.width = (img.width / img.height) * max;
+								  oc.height = max;
+							  }
+							  octx.drawImage(oc, 0, 0, oc.width, oc.height);
+							  octx.drawImage(img, 0, 0, oc.width, oc.height);
+							  myThumbnail = oc.toDataURL();
+						  } else {
+							  myThumbnail = oc.toDataURL();
+						  }
+
+					  }
+					  
+					  img.onload = resizeMyPic;
+					  var base64ToBin = dataURItoBlob(base64);
+					  
+					  
+					  
+
+					  // console.log(base64ToBin);
+					  // console.log(extension);
+					  // console.log(size);
+					  socket.generateURLForUploadFile({
+						  "fileSize": size,
+						  "fileType": extension
+					  }).then(resp => {
+						  // console.log(JSON.stringify(resp));
+						  var data = base64ToBin;
+						  console.log("base64ToBin --> " + base64ToBin);
+						  console.log("ok");
+						  myPath = resp.body.relativePath;
+						  var xhr = new XMLHttpRequest();
+						  xhr.addEventListener("readystatechange", function () {
+							  if (this.readyState === 4) {
+								  resolve([myPath,extension,myThumbnail]);
+							  }
+						  });
+						  
+						  var URLforGET = "https://z2.objectstorage.liveperson.net" + myPath + "?temp_url_sig=" + resp.body.queryParams.temp_url_sig + "&temp_url_expires=" + resp.body.queryParams.temp_url_expires;
+						  console.log(URLforGET);
+						  xhr.open("PUT", URLforGET);
+						  // xhr.setRequestHeader("Content-Type", "text/html; charset=UTF-8");
+						  // xhr.setRequestHeader("Accept", "application/json");
+						  // xhr.setRequestHeader("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) CriOS/56.0.2924.75 Mobile/14E5239e Safari/602.1");
+						  // xhr.sendAsBinary(data);
+						  
+						  var nBytes = data.length, ui8Data = new Uint8Array(nBytes);
+						  for (var nIdx = 0; nIdx < nBytes; nIdx++) {
+							  ui8Data[nIdx] = data.charCodeAt(nIdx) & 0xff;
+						  }
+						  console.log("dataToSend --> " + ui8Data);
+						  xhr.send(ui8Data);
+						  
+					  });
+				  });
+				  FR.readAsDataURL(files[0]);
+			}
+		    }
+	  });
+	  
+  }
+	
+	
+  
+	
+	
+  socket.onNotification(withType('MessagingEvent'),
+    body => body.changes.forEach(change => {
+      
+      console.log(change);     
+      switch (change.event.type) {
+              
+         case 'RichContentEvent':
+              
+              if (((new Date().getTime()) - change.serverTimestamp)/1000 < 10)
+                  notifyMe("New structured content");
+          
+              var space = document.createElement('div');
+              space.setAttribute("class","spaceagent");
+              var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
+              space.innerHTML = new Date(change.serverTimestamp).toLocaleString('en-US', options);
+              var maindiv = document.getElementById('log');
+              maindiv.appendChild(space);
+                  
+              
+              
+              /********* structured content rendering ***************/
+                  
+              var json = change.event.content;
+              try {
+                 
+                var panelgroup = document.createElement("div");
+                panelgroup.setAttribute("class","hostagent");
+                var maindiv = document.getElementById('log');
+                maindiv.appendChild(panelgroup);
+               
+                  
+                var typelist = "verticalhorizontal";
+                if ((json.hasOwnProperty("type")) && (json.hasOwnProperty("elements")) && (typelist.indexOf(json.type) > -1)) {
+                    function appendHorizontalLayout(jsonElements, macroGroup) {
+                        var panelchoice = document.createElement("div");
+                        macroGroup.appendChild(panelchoice);
+                        panelchoice.style.border = "1px solid #cacaca";
+                        panelchoice.style.backgroundColor = "#FAFAFA";
+                        panelchoice.style.clear = "both";
+                        panelchoice.style.width = "180px";
+                        panelchoice.style.textAlign = "center";
+                        panelchoice.style.whiteSpace = "nowrap";
+                        panelchoice.style.paddingTop = "10px";
+                        panelchoice.style.paddingBottom = "10px";
+                        var k = -1;
+                        jsonElements.forEach(function(element) {
+                            k++;
+                            if (k == 0) {
+                                panelchoice.style.borderTopLeftRadius = "4px";
+                                panelchoice.style.borderBottomLeftRadius = "4px";
+                               
+                            }
+                            if (k == jsonElements.length - 1) {
+                                panelchoice.style.borderTopRightRadius = "4px";
+                                panelchoice.style.borderBottomRightRadius = "4px";
+                                
+                            }
+                            var el_macropanelel_wrapper = document.createElement('div');
+                            var el_panelelement = document.createElement("div");
+                            var element = jsonElements[k];
+                            //**** types
+                            if (element.hasOwnProperty("type")) {
+                                
+                                switch (element.type) {
+                                    case "vertical":
+                                        appendHorizontalLayout(element.elements, el_macropanelel_wrapper);
+                                        break;
+                                    case "horizontal":
+                                        console.error("le_enh_vis:: Horizontal subgroups not allowed!");
+                                        //This should result in an error
+                                        break;
+                                    case "linkPreview":
+                                        //TODO - add in link preview
+                                        el_panelelement.innerHTML = "<div><a href='" + element.url + "'>" + element.title + "</a></div>";
+                                        el_panelelement = el_panelelement.firstChild;
+                                        el_panelelement.style.textAlign = "center";
+                                        break;
+                                        
+                                    case "map":
+                                        //var itemDataTruncated = item.data.text.length > 20 ? (item.data.text.substring(0, 20) + "...") : item.data.text;
+                                        el_panelelement.innerHTML = "<div><img width=\"160px\" src='https://maps.googleapis.com/maps/api/staticmap?center=" + element.la + "," + element.lo + "&markers=color:blue%7Clabel:A%7C" + element.la + "," + element.lo + "&zoom=14&size=167x111&key=AIzaSyD0FAiv_la9dq8c70_ETYu1i-eoaJktNEo' style='width:auto;height:90%;max-height:111px;'></div>";
+                                        el_panelelement = el_panelelement.firstChild;
+                                        el_panelelement.style.textAlign = "center";
+                                        break;
+                                        
+                                    case "button":
+                                        var itemDataTruncated = element.title ? (element.title.length > 20 ? (element.title.substring(0, 20) + "...") : element.title) : "";
+                                        el_panelelement.innerHTML = '<div style="text-align:center;" title="' + element.title + '"  ' +
+                                        ' ">' + itemDataTruncated + '</div>';
+                                        el_panelelement = el_panelelement.firstChild;
+                                        break;
+                                        
+                                    case "text":
+                                        var styleString = 'style =\"';
+                                        Object.keys(element.style).forEach(function(prop) {
+                                            if (element.style.hasOwnProperty(prop)) {
+                                                styleString += prop + ': ' + element.style[prop] + ' !important; ';
+                                            }
+                                        });
+                                        styleString += '\";';
+                                        el_panelelement.innerHTML = '<div class="lp-panel-text" ' + styleString + ' title="' + element.text + '">' + element.text + '</div>';
+                                        el_panelelement = el_panelelement.firstChild;
+                                        break;
+                                        
+                                    case "image":
+                                        el_panelelement.innerHTML = element.url ? "<div><img width=\"160px\" src='" + element.url + "'></div>" : "<img />";
+                                        el_panelelement = el_panelelement.firstChild;
+                                        el_panelelement.style.textAlign = "center";
+                                        break;
+                                 }
+                            }
+                            //**** types
+                            //**** Set Action
+                            if (element.hasOwnProperty("click") && element.click.hasOwnProperty("actions")) {
+                                switch (element.click.actions[0].type) {
+                                    case 'link':
+                                        el_macropanelel_wrapper.innerHTML = linkOut(element.click.actions[0].uri);
+                                        break;
+                                    case 'publishText':
+                                        el_macropanelel_wrapper.innerHTML = publishTextData(element.click.actions[0].text);
+                                        break;
+                                    case 'navigate':
+                                        el_macropanelel_wrapper.innerHTML = navigate(element.click.actions[0].la, element.click.actions[0].lo);
+                                        break;
+                                }
+                                el_macropanelel_wrapper.firstChild.appendChild(el_panelelement);
+                            } else {
+                                el_macropanelel_wrapper.appendChild(el_panelelement);
+                            }
+                            panelchoice.appendChild(el_macropanelel_wrapper);
+                       });
+                    }
+                var orientation = json.type;
+                if (orientation === "horizontal") {
+                    panelgroup.style.width = (210 * json.elements.length) + "px";
+                    json.elements.forEach(function(el) {
+                        appendHorizontalLayout([el], panelgroup);
+                    });
+                } else {
+                    panelgroup.style.width = (180 + "px");
+                    appendHorizontalLayout(json.elements, panelgroup);
+                }
+            }
+         } catch (e) {
+            console.log(e);
+         }
+          
+                   $('#agenttyping').remove();
+                   var agenttyping = document.createElement('div');
+                   agenttyping.setAttribute("class","agenttyping");
+                   agenttyping.setAttribute("id","agenttyping");
+                   var maindiv = document.getElementById('log');
+                   maindiv.appendChild(agenttyping);
+          
+                   newBadge(socket, change);
+          
+                   
+          
+        break;
+              
+        
+        case 'ContentEvent':
+              
+              
+               if(change.originatorId===me){
+                   var space = document.createElement('div');
+                   space.setAttribute("class","spacecustomer");
+                   var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
+                   space.innerHTML = new Date(change.serverTimestamp).toLocaleString('en-US', options);
+                   var maindiv = document.getElementById('log');
+                   maindiv.appendChild(space);
+                   
+		   if(change.event.contentType === "text/plain"){
+			   var hostdiv = document.createElement('div');
+			   hostdiv.setAttribute("class","hostcustomer");
+			   var newdiv = document.createElement('div');
+			   newdiv.setAttribute("class","customer");
+			   newdiv.innerHTML = change.event.message;                
+			   var maindiv = document.getElementById('log');
+			   maindiv.appendChild(hostdiv);
+			   hostdiv.appendChild(newdiv);
+		   }else if(change.event.contentType === "hosted/file"){
+			   var hostdiv = document.createElement('div');
+			   hostdiv.setAttribute("class","hostcustomer");
+			   var newdiv = document.createElement('div');
+			   newdiv.setAttribute("class","customer");
+			   var img = document.createElement("img");
+			   // img.width = "30px";
+			   // img.height = "30px";
+			   img.src = change.event.message.preview;               
+			   var maindiv = document.getElementById('log');
+			   maindiv.appendChild(hostdiv);
+			   hostdiv.appendChild(newdiv);
+			   newdiv.appendChild(img);
+		   }
+                 
+                   var marks = document.createElement('div');
+                   marks.setAttribute("class","hostmarks");
+                   marks.setAttribute("id","message" + change.sequence);
+                   var maindiv = document.getElementById('log');
+                   maindiv.appendChild(marks);
+                   $('#message' + change.sequence).html('<img src="https://i.imgur.com/XAP9KOi.png" height="20px" width="20px">');
+                 
+                   $('#agenttyping').remove();
+                   var agenttyping = document.createElement('div');
+                   agenttyping.setAttribute("class","agenttyping");
+                   agenttyping.setAttribute("id","agenttyping");
+                   var maindiv = document.getElementById('log');
+                   maindiv.appendChild(agenttyping);
+                 
+                   $("#log").animate({
+                        scrollTop: 1000000
+                   }, 1);
+		   
+		   if(manualETTR){
+			   displayToaster();
+		   }
+		   
+                   
+               }
+              
+               else{
+                 
+                   if (((new Date().getTime()) - change.serverTimestamp)/1000 < 10)
+                      notifyMe(change.event.message);
+                 
+                   var space = document.createElement('div');
+                   space.setAttribute("class","spaceagent");
+                   var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
+                   space.innerHTML = new Date(change.serverTimestamp).toLocaleString('en-US', options);
+                   var maindiv = document.getElementById('log');
+                   maindiv.appendChild(space);
+                   
+                   var hostdiv = document.createElement('div');
+                   hostdiv.setAttribute("class","hostagent");
+                   var newdiv = document.createElement('div');
+                   newdiv.setAttribute("class","agent");
+                   newdiv.innerHTML = change.event.message;                
+                   var maindiv = document.getElementById('log');
+                   maindiv.appendChild(hostdiv);
+                   hostdiv.appendChild(newdiv);
+                 
+                   $('#agenttyping').remove();
+                   var agenttyping = document.createElement('div');
+                   agenttyping.setAttribute("class","agenttyping");
+                   agenttyping.setAttribute("id","agenttyping");
+                   var maindiv = document.getElementById('log');
+                   maindiv.appendChild(agenttyping);
+                 
+                   newBadge(socket, change);
+                   
+                   
+                  
+               }
+          
+          
+          
+          
+              
+          break;
+          
+          /********* Consumer tickers **********/
+		      
+          case 'AcceptStatusEvent':
+          
+                   for (var k=0; k<(change.event.sequenceList.length); k++){
+                         if (change.event.status === "READ"){
+                              for (var i=0; i<((change.event.sequenceList[k])+1); i++){
+                                  $('#message' + i).html('<img src="https://i.imgur.com/FRpLvxO.png" height="20px" width="20px">');
+                                  $('#message' + i).addClass("read");
+                              }
+                         }
+                         else if (change.event.status === "ACCEPT"){
+                              for (var i=0; i<((change.event.sequenceList[k])+1); i++){
+                                  if (!$('#message' + i).hasClass("read")){
+                                        $('#message' + i).html('<img src="https://i.imgur.com/TQ5E6PR.png" height="20px" width="20px">');
+                                        $('#message' + i).addClass("accept");
+                                  }
+                              }
+                              $('#message' + change.event.sequenceList[k]).html('<img src="https://i.imgur.com/TQ5E6PR.png" height="20px" width="20px">');
+                         }
+                   }
+          
+          break;
+          
+          case 'ChatStateEvent':
+          
+                 if(change.event.chatState === "COMPOSING"){
+                      $('#agenttyping').html("Agent is typing...");
+                 }
+          
+                 if(change.event.chatState === "ACTIVE"){
+                      $('#agenttyping').html("");
+                 }
+          
+          break;
+              
+              // var textarea = document.getElementById('log');
+              // textarea.scrollTop = textarea.scrollHeight;
+            
+      }
+    
+    }));
+  // subscribe to open conversations metadata
+  socket.subscribeExConversations({
+    'convState': ['OPEN']
+  }).then(resp => {
+    var openConvs = {};
+    socket.onNotification(withSubscriptionID(resp.body.subscriptionId),
+      (notificationBody) => handleConversationNotification(socket,notificationBody,openConvs));
+    $('#send').prop('disabled', false).click(() => {
+        
+       if($('#textline').val()) {
+         if (Object.keys(openConvs)[0]) {
+           publishTo(socket,Object.keys(openConvs)[0]);
+           // testtesttest(socket,Object.keys(openConvs)[0]);
+         } else  {
+           socket.consumerRequestConversation()
+             .then(resp => publishTo(socket,resp.body.conversationId));
+         }
+       }
+        
+    });
+	  
+	  
+    $('#photo').prop('disabled', false).click(() => {
+		  var input = {};
+	    var convID;
+	    var myResponse = {};
+		  input = document.createElement('input');
+		  input.type = 'file';
+		  input.click();
+		  var base64 = "";
+		  var myPath = "";
+		  var extension = "";
+	    
+		  
+		  input.onchange = function(){
+			  process_file(input.files, convID)
+			  .then(function(res){
+				  console.log("second level");
+				  myPath = res[0];
+				  extension = res[1];
+				  base64 = res[2];
+				  if(myPath !== "" && extension !== "" && base64 !== ""){
+					  if (Object.keys(openConvs)[0]) {
+						    publishPhoto(socket,Object.keys(openConvs)[0],myPath,extension,base64);
+					    } else  {
+						    socket.consumerRequestConversation()
+							.then(resp => publishPhoto(socket,resp.body.conversationId,myPath,extension,base64));
+					    }
+				  }
+			  })
+			  
+		  };
+			
+			
+		  // socket.generateURLForUploadFile({
+			 // "fileSize": "1000",
+			  // "fileType": "JPG"
+		  // }).then(resp => console.log(JSON.stringify(resp)));
+         
+    });
+	  
+    $('#close').prop('disabled', false).click(() => {
+      if (Object.keys(openConvs)[0]) {
+        socket.updateConversationField({
+            conversationId: Object.keys(openConvs)[0],
+            conversationField: [{
+                    field: "ConversationStateField",
+                    conversationState: "CLOSE"
+                }]
+        });
+      }
+    });
+  });
+  $('#connect').text('disconnect').unbind('click').click(() => socket.ws.close());
+  
+  window.setInterval(socket.getClock, 30000)
+  //socket.getClock();
+  socket.ws.onclose = (evt) => onCloseSocket(socket,evt);
+}
+  
+	
+ /********* It makes as 'read' the agent tickers when the alert button is pressed **********/
+  
+function MakeReadUntilSuccess(socket, dialogId, arrayBadge, counter, callback){
+  	if (counter < (arrayBadge.length + 1)) {   
+          	socket.publishEvent({
+                 	dialogId: dialogId,
+                 	event: {
+                     		type: 'AcceptStatusEvent',
+                     		status: 'READ',
+                     		sequenceList: arrayBadge[counter]
+                 	}
+           	});
+          	counter++;
+		MakeReadUntilSuccess(socket, dialogId, arrayBadge, counter, callback);
+	}
+  	
+}
+    
+ /********* It manages 'accept'-'read' agent tickers **********/
+	
+function newBadge(socket, change){
+  
+ 
+  
+         badge ++;
+	 arrayBadge.push(change.sequence); 
+    
+          socket.publishEvent({
+              dialogId: change.dialogId,
+              event: {
+                type: 'AcceptStatusEvent',
+                status: 'ACCEPT',
+                sequenceList: [change.sequence]
+              }
+          });
+    
+         if(badge == 1){
+            var oneTimeLoop = setInterval(function(){ 
+                if(($("#agenttyping").position().top < 405) && ($("#agenttyping").position().top > 404)){
+                    clearInterval(oneTimeLoop);
+                    $('.alertbadge').hide();
+                    $('.badge').hide();
+                    MakeReadUntilSuccess(socket, change.dialogId, arrayBadge, 0);
+		    arrayBadge = [];
+                    badge = 0;
+                }
+            }, 500);
+         }
+         $('.badge').html(badge);
+         $('.alertbadge').show();
+         $('.badge').show();
+  
+  $(document).on('click', function(evt) {
+	 var scrollToTop = $("#agenttyping").position().top - $(".intro").position().top;
+	 if($("#agenttyping").position().top < 404){
+		 MakeReadUntilSuccess(socket, change.dialogId, arrayBadge, 0);
+	 }
+         if($(evt.target).is('.alertbadge') && $('.alertbadge').is(":visible")) {
+             badge = 0;
+             $('.alertbadge').hide();
+             $('.badge').hide();
+             $("#log").animate({
+                   scrollTop: scrollToTop
+             }, 1000);
+         }
+         if($(evt.target).is('.badge') && $('.badge').is(":visible")) {
+             badge = 0;
+             $('.alertbadge').hide();
+             $('.badge').hide();
+             $("#log").animate({
+                    scrollTop: scrollToTop
+             }, 1000);
+         }
+  });
+  
+}
+    
+function handleConversationNotification(socket,notificationBody,openConvs) {
+  notificationBody.changes.forEach(change => {
+    console.log(change);
+    if (change.type === 'UPSERT') {
+	    
+	     /********* ManualETTR set-up **********/
+	    
+	    
+      
+      if(change.result.conversationDetails.manualETTR != manualETTR){
+	      manualETTR = change.result.conversationDetails.manualETTR;
+	      displayToaster(); 
+      }
+      
+      if (!openConvs[change.result.convId]) {
+        openConvs[change.result.convId] = change.result;
+        socket.subscribeMessagingEvents({
+          fromSeq: 0,
+          dialogId: change.result.convId
+        });
+      }
+	var myUpsertLength = change.result.conversationDetails.dialogs.length;
+        if(myUpsertLength > 1){ //*
+		
+		
+          
+          if(change.result.conversationDetails.dialogs[myUpsertLength -1].channelType==="COBROWSE"){
+		  
+		  console.log(JSON.stringify(change.result.conversationDetails.dialogs[myUpsertLength -1]));
+		  
+		   /********* CoBrowse management **********/
+		  
+	     if(change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.sessionState==="ACCEPTED"){
+		     
+		     /*******
+		     var videoDiv = document.createElement('div');
+		     videoDiv.className = 'lp_cobrowse_callscreen_container';
+		     videoDiv.setAttribute("width","100%");
+		     videoDiv.setAttribute("height","100%");
+		     document.body.appendChild(videoDiv);
+		     *********/
+		     
+	     }
+		  
+		 
+		  
+		  
+        
+            if(change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.sessionState==="CLOSED"){
+                $(".cobrowse").hide();
+              
+                $('#agenttyping').remove();
+                var agenttyping = document.createElement('div');
+                agenttyping.setAttribute("class","agenttyping");
+                agenttyping.setAttribute("id","agenttyping");
+                var maindiv = document.getElementById('log');
+                maindiv.appendChild(agenttyping);
+            }
+        
+            if(change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.sessionState==="INVITED"){
+		    
+		    lpTag.events.publish("lpCoBrowse", "cobrowseOffered", {
+			    serviceId: change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.serviceId,
+			    agentId: change.result.conversationDetails.participants[0].id,
+			    visitorName: "My Visitor",
+			    mode: change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.mode,
+			    chatId: change.result.conversationDetails.dialogs[myUpsertLength -1].dialogId,
+			    ssid: "<Monitoring Session ID>",
+			    svid: "<Monitoring Visitor ID>",
+			    scid: "<Monitoring Context ID>",
+			    cid: "<Engagement Context ID>",
+			    eid: "<Engagement ID>"
+		    });
+          
+              var space = document.createElement('div');
+              space.setAttribute("class","spaceagent");
+              var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
+              space.innerHTML = new Date(change.result.conversationDetails.metaDataLastUpdateTs).toLocaleString('en-US', options) + " *** Cobrowse invitation";
+              var maindiv = document.getElementById('log');
+              maindiv.appendChild(space);
+          
+              var hostdiv = document.createElement('div');
+              hostdiv.setAttribute("class","hostagent");
+              var newdiv = document.createElement('div');
+              newdiv.setAttribute("class","cobrowse");
+              newdiv.innerHTML = "You are invited in a " + '"' + change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.mode + '"' + " CoBrowse session<br />";                
+              var newAccept = document.createElement('button');
+              newAccept.setAttribute("id","accept");
+              newAccept.innerHTML = "Accept";
+              var newDecline = document.createElement('button');
+              newDecline.setAttribute("id","decline");
+              newDecline.innerHTML = "Decline";
+              var maindiv = document.getElementById('log');
+              maindiv.appendChild(hostdiv);
+              hostdiv.appendChild(newdiv);
+              newdiv.appendChild(newAccept);
+              newdiv.appendChild(newDecline);
+              
+              $('#agenttyping').remove();
+              var agenttyping = document.createElement('div');
+              agenttyping.setAttribute("class","agenttyping");
+              agenttyping.setAttribute("id","agenttyping");
+              var maindiv = document.getElementById('log');
+              maindiv.appendChild(agenttyping);
+                    
+              notifyMe("CoBrowse invitation");
+	      newBadge(socket, change);
+              
+          
+              // console.log(change.result.conversationDetails.dialogs["1"].metaData.serviceId);
+              // console.log(change.result.conversationDetails.participants["1"].id);
+              // console.log(change.result.conversationDetails.participants["0"].id);
+          
+          
+              $(document).on('click', function(evt) {
+                  if($(evt.target).is('#accept')) {
+			  
+			  console.log(JSON.stringify(change.result.conversationDetails));
+			  console.log(change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.serviceId);
+			  console.log("Agent --> " + change.result.conversationDetails.participants[0].id);
+			  // console.log(change.result.conversationDetails.participantsDetails[0].id);
+			  console.log(change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.mode);
+			  
+			  
+			  
+
+                
+                      lpTag.events.publish("lpCoBrowse", "cobrowseAccepted", {
+ 	                        serviceId: change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.serviceId,
+ 	                        agentId: change.result.conversationDetails.participants[0].id,
+ 	                        // visitorName: change.result.conversationDetails.participants["0"].id,
+			        visitorName: "My Visitor",
+			        mode: change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.mode,
+			        chatId: change.result.conversationDetails.dialogs[myUpsertLength -1].dialogId,
+			      ssid: "<Monitoring Session ID>",
+			      svid: "<Monitoring Visitor ID>",
+			      scid: "<Monitoring Context ID>",
+			      cid: "<Engagement Context ID>",
+			      eid: "<Engagement ID>"
+                      });
+		      
+
+			  
+			  
+                      $(".cobrowse").hide();
+                      var space = document.createElement('div');
+                      space.setAttribute("class","spaceagent");
+                      var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
+                      space.innerHTML = new Date(change.result.conversationDetails.metaDataLastUpdateTs).toLocaleString('en-US', options) + " *** Cobrowse accepted";
+                      var maindiv = document.getElementById('log');
+                      maindiv.appendChild(space);
+                    
+                      $('#agenttyping').remove();
+                      var agenttyping = document.createElement('div');
+                      agenttyping.setAttribute("class","agenttyping");
+                      agenttyping.setAttribute("id","agenttyping");
+                      var maindiv = document.getElementById('log');
+                      maindiv.appendChild(agenttyping);
+			  
+		      
+                    
+                
+                  }
+            
+                  else if($(evt.target).is('#decline')) {
+                  
+                      lpTag.events.publish("lpCoBrowse", "cobrowseDeclined", {
+ 	                        serviceId: change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.serviceId,
+ 	                        agentId: change.result.conversationDetails.participants[0].id,
+ 	                        visitorName: "My Visitor",
+			        mode: change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.mode,
+			        chatId: change.result.conversationDetails.dialogs[myUpsertLength -1].dialogId,
+			      ssid: "<Monitoring Session ID>",
+			      svid: "<Monitoring Visitor ID>",
+			      scid: "<Monitoring Context ID>",
+			      cid: "<Engagement Context ID>",
+			      eid: "<Engagement ID>"
+                      });
+                      $(".cobrowse").hide();
+                      var space = document.createElement('div');
+                      space.setAttribute("class","spaceagent");
+                      var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
+                      space.innerHTML = new Date(change.result.conversationDetails.metaDataLastUpdateTs).toLocaleString('en-US', options) + " *** Cobrowse declined";
+                      var maindiv = document.getElementById('log');
+                      maindiv.appendChild(space);
+                    
+                      $('#agenttyping').remove();
+                      var agenttyping = document.createElement('div');
+                      agenttyping.setAttribute("class","agenttyping");
+                      agenttyping.setAttribute("id","agenttyping");
+                      var maindiv = document.getElementById('log');
+                      maindiv.appendChild(agenttyping);
+                
+                  }
+                  else {
+                  
+                  }
+              });
+            }
+        }
+      
+      } 
+    } else if (change.type === 'DELETE') {
+	    console.log("******CLOSE******");
+	    console.log(JSON.stringify(change));
+      delete openConvs[change.result.convId];
+      // $('#log').append(`La conversazione e' stata chiusa.\n`);
+      var space = document.createElement('div');
+      space.setAttribute("class","space");        
+      var maindiv = document.getElementById('log');
+      maindiv.appendChild(space);
+        
+      var newdiv = document.createElement('div');
+      newdiv.setAttribute("class","chiusura");
+      newdiv.innerHTML = "- Conversation has been closed -";
+      var mydiv = document.getElementById('log');
+      mydiv.appendChild(newdiv);
+	    
+     
+      $('.hostmarks').remove();
+      
+        
+      $('.alertbadge').hide();
+      $('.badge').hide();
+      badge = 0;
+      
+      
+      csat(socket, change.result.convId);
+      
+    }
+  });
+}
+  
+	 /********* CSAT window **********/
+	
+function csat(socket, convId){
+  
+      var CSATresult = null;
+      var NPSresult = null;
+      var completion;
+  
+  
+      var bg = document.createElement('div');
+      bg.setAttribute("class","csatBG");
+      bg.setAttribute("id","csatBG");
+      var mydiv = document.getElementById('ttr');
+      mydiv.appendChild(bg);
+  
+  
+  
+      var CSATmsg = document.createElement('div');
+      CSATmsg.setAttribute("class","CSATmsg");
+      CSATmsg.setAttribute("id","CSATmsg");
+      var mydiv = document.getElementById('csatBG');
+      mydiv.appendChild(CSATmsg);
+      document.getElementById("CSATmsg").innerHTML = "Give us a feedback!";
+  
+  
+      var a = document.createElement('div');
+      a.setAttribute("class","emptyCSAT1");
+      var mydiv = document.getElementById('csatBG');
+      mydiv.appendChild(a);
+  
+      var b = document.createElement('div');
+      b.setAttribute("class","emptyCSAT2");
+      var mydiv = document.getElementById('csatBG');
+      mydiv.appendChild(b);
+  
+      var c = document.createElement('div');
+      c.setAttribute("class","emptyCSAT3");
+      var mydiv = document.getElementById('csatBG');
+      mydiv.appendChild(c);
+  
+      var d = document.createElement('div');
+      d.setAttribute("class","emptyCSAT4");
+      var mydiv = document.getElementById('csatBG');
+      mydiv.appendChild(d);
+  
+      var e = document.createElement('div');
+      e.setAttribute("class","emptyCSAT5");
+      var mydiv = document.getElementById('csatBG');
+      mydiv.appendChild(e);
+  
+  
+      var csat1 = document.createElement('div');
+      csat1.setAttribute("class","invisibleCSAT1");
+      csat1.setAttribute("id","csat1");
+      var mydiv = document.getElementById('csatBG');
+      mydiv.appendChild(csat1);
+  
+      var csat2 = document.createElement('div');
+      csat2.setAttribute("class","invisibleCSAT2");
+      csat2.setAttribute("id","csat2");
+      var mydiv = document.getElementById('csatBG');
+      mydiv.appendChild(csat2);
+  
+      var csat3 = document.createElement('div');
+      csat3.setAttribute("class","invisibleCSAT3");
+      csat3.setAttribute("id","csat3");
+      var mydiv = document.getElementById('csatBG');
+      mydiv.appendChild(csat3);
+  
+      var csat4 = document.createElement('div');
+      csat4.setAttribute("class","invisibleCSAT4");
+      csat4.setAttribute("id","csat4");
+      var mydiv = document.getElementById('csatBG');
+      mydiv.appendChild(csat4);
+  
+      var csat5 = document.createElement('div');
+      csat5.setAttribute("class","invisibleCSAT5");
+      csat5.setAttribute("id","csat5");
+      var mydiv = document.getElementById('csatBG');
+      mydiv.appendChild(csat5);
+  
+  
+      var NPSmsg = document.createElement('div');
+      NPSmsg.setAttribute("class","NPSmsg");
+      NPSmsg.setAttribute("id","NPSmsg");
+      var mydiv = document.getElementById('csatBG');
+      mydiv.appendChild(NPSmsg);
+      document.getElementById("NPSmsg").innerHTML = "Did we solve your issue?";
+  
+      var NPSyes = document.createElement('div');
+      NPSyes.setAttribute("class","NPSyes");
+      NPSyes.setAttribute("id","NPSyes");
+      var mydiv = document.getElementById('csatBG');
+      mydiv.appendChild(NPSyes);
+      document.getElementById("NPSyes").innerHTML = "Yes";
+  
+      var NPSno = document.createElement('div');
+      NPSno.setAttribute("class","NPSno");
+      NPSno.setAttribute("id","NPSno");
+      var mydiv = document.getElementById('csatBG');
+      mydiv.appendChild(NPSno);
+      document.getElementById("NPSno").innerHTML = "No";
+  
+  
+      var submitCSAT = document.createElement('button');
+      submitCSAT.setAttribute("class","submitCSAT");
+      submitCSAT.setAttribute("id","submitCSAT");
+      var mydiv = document.getElementById('csatBG');
+      mydiv.appendChild(submitCSAT);
+      document.getElementById("submitCSAT").innerHTML = "Send";
+  
+  
+  
+  
+      
+  
+      $(document).on('click', function(evt) {
+              if($(evt.target).is('.emptyCSAT1')||$(evt.target).is('.fullCSAT1')||$(evt.target).is('.invisibleCSAT1')) {
+                  $("#csat1").attr("class","fullCSAT1");
+                  $("#csat2").attr("class","invisibleCSAT2");
+                  $("#csat3").attr("class","invisibleCSAT3");
+                  $("#csat4").attr("class","invisibleCSAT4");
+                  $("#csat5").attr("class","invisibleCSAT5");
+                  CSATresult = 1;
+              }
+              if($(evt.target).is('.emptyCSAT2')||$(evt.target).is('.fullCSAT2')||$(evt.target).is('.invisibleCSAT2')) {
+                  $("#csat1").attr("class","fullCSAT1");
+                  $("#csat2").attr("class","fullCSAT2");
+                  $("#csat3").attr("class","invisibleCSAT3");
+                  $("#csat4").attr("class","invisibleCSAT4");
+                  $("#csat5").attr("class","invisibleCSAT5");
+                  CSATresult = 2;
+              }
+              if($(evt.target).is('.emptyCSAT3')||$(evt.target).is('.fullCSAT3')||$(evt.target).is('.invisibleCSAT3')) {
+                  $("#csat1").attr("class","fullCSAT1");
+                  $("#csat2").attr("class","fullCSAT2");
+                  $("#csat3").attr("class","fullCSAT3");
+                  $("#csat4").attr("class","invisibleCSAT4");
+                  $("#csat5").attr("class","invisibleCSAT5");
+                  CSATresult = 3;
+              }
+              if($(evt.target).is('.emptyCSAT4')||$(evt.target).is('.fullCSAT4')||$(evt.target).is('.invisibleCSAT4')) {
+                  $("#csat1").attr("class","fullCSAT1");
+                  $("#csat2").attr("class","fullCSAT2");
+                  $("#csat3").attr("class","fullCSAT3");
+                  $("#csat4").attr("class","fullCSAT4");
+                  $("#csat5").attr("class","invisibleCSAT5");
+                  CSATresult = 4;
+              }
+              if($(evt.target).is('.emptyCSAT5')||$(evt.target).is('.fullCSAT5')||$(evt.target).is('.invisibleCSAT5')) {
+                  $("#csat1").attr("class","fullCSAT1");
+                  $("#csat2").attr("class","fullCSAT2");
+                  $("#csat3").attr("class","fullCSAT3");
+                  $("#csat4").attr("class","fullCSAT4");
+                  $("#csat5").attr("class","fullCSAT5");
+                  CSATresult = 5;
+              }
+        
+              if($(evt.target).is('.NPSyes')||$(evt.target).is('.NPSyesOK')||$(evt.target).is('.NPSyesFade')) {
+                  $("#NPSno").attr("class","NPSnoFade");
+                  $("#NPSyes").attr("class","NPSyesOK");
+                  NPSresult = true;
+              }
+        
+              if($(evt.target).is('.NPSno')||$(evt.target).is('.NPSnoOK')||$(evt.target).is('.NPSnoFade')) {
+                  $("#NPSno").attr("class","NPSnoOK");
+                  $("#NPSyes").attr("class","NPSyesFade");
+                  NPSresult = false;
+              }
+        
+        
+              if($(evt.target).is('.submitCSAT')) {
+                  if (!(CSATresult == null) && !(NPSresult == null)){
+                      completion = "FILLED";  
+                  }
+                  else if ((CSATresult  == null) && (NPSresult == null)){
+                      completion = "SKIPPED";
+                  }
+                  else {
+                      completion = "PARTIALLY_FILLED";
+                  }
+                
+                  
+                  socket.updateConversationField({
+                          conversationId: convId,
+                          conversationField: [{"field":"CSATRate","csatRate":CSATresult,"csatResolutionConfirmation":NPSresult,"status":completion}]
+                      });
+            
+                  $("#csatBG").remove();
+                
+                
+                  
+              }
+      });
+  
+      
+  
+}
+  
+function onCloseSocket(socket,evt) {
+  socket.ws = null;
+  // $('#log').append(`connection was closed with code ${evt.code}\n`);
+  console.log("closed with code: " + evt.code);
+  console.log(evt);
+  prepareToConnect();
+  $('#send').prop('disabled', true).unbind('click');
+  $('#account').prop('disabled',false).val();
+  $('#connect').click();        
+}
+function publishTo(socket,convID) {
+  socket.publishEvent({
+    dialogId: convID,
+    event: {
+      type: 'ContentEvent',
+      contentType: 'text/plain',
+      message: $('#textline').val()
+    }
+  })
+  .then(resp => $('#textline').val(''));
+}
+	
+function publishPhoto(socket,convID,myPath,extension,base64) {
+	console.log(myPath);
+	console.log(extension);
+	console.log(base64);
+	console.log("fine");
+	
+	var resizedBase64;
+	var canvas=document.createElement('canvas');
+	var ctx=canvas.getContext("2d");
+	var cw=canvas.width;
+	var ch=canvas.height;
+	// limit the image to 150x100 maximum size
+	var maxW=150;
+	var maxH=100;
+	  var img = new Image;
+	  img.onload = function() {
+	    var iw=img.width;
+	    var ih=img.height;
+	    var scale=Math.min((maxW/iw),(maxH/ih));
+	    var iwScaled=iw*scale;
+	    var ihScaled=ih*scale;
+	    canvas.width=iwScaled;
+	    canvas.height=ihScaled;
+	    ctx.drawImage(img,0,0,iwScaled,ihScaled);
+	    resizedBase64 = canvas.toDataURL();
+		  console.log(resizedBase64);
+	  }
+	  img.src = base64;
+	
+	socket.publishEvent({
+		dialogId: convID,
+		event: {
+			type: 'ContentEvent',
+			contentType: "hosted/file",
+			message: {
+				caption: "",
+				relativePath: myPath,
+				fileType: extension,
+				preview: base64
+			}
+		}
+	});
+  
+}
+  
+function withSubscriptionID(subscriptionID) {
+  return notif => notif.body.subscriptionId === subscriptionID;
+}
+function withType(type) {
+  return notif => notif.type.includes(type);
+}
+function myId(jwt) {
+  return JSON.parse(atob(jwt.split('.')[1])).sub;
+}
+	
+	 /********* Events declaration **********/
+const apiRequestTypes = ['cqm.ExConversationChangeNotification','GetClock','cqm.SubscribeExConversations','ms.PublishEvent','cm.ConsumerRequestConversation','ms.SubscribeMessagingEvents','InitConnection','cm.UpdateConversationField','ms.GenerateURLForUploadFile'];
+</script>
+	
+</html>
